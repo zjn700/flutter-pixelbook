@@ -14,4 +14,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-# flutter-pixelbook
+
+## flutter-pixelbook
+
+- [Configure launch.json in vs code](https://stackoverflow.com/questions/59692900/how-to-run-flutter-on-chrome-using-visual-code-editor)

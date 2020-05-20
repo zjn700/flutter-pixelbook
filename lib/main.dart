@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         home: RandomWords(),
         theme: ThemeData(
           brightness: Brightness.dark,
-          primaryColor: Colors.deepOrange,
+          primaryColor: Colors.orangeAccent,
           textTheme: TextTheme(
               bodyText1: TextStyle(color: Colors.red),
               headline5: TextStyle(color: Colors.white, fontSize: 50)),
@@ -32,19 +32,59 @@ class RandomWordsState extends State<RandomWords> {
     // final wordPair = WordPair.random()
     // return Text(wordPair.asPascalCase);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Startup Name Generator',
-          style: Theme.of(context).textTheme.headline5,
+        appBar: AppBar(
+          title: Text(
+            'Startup Name Generator',
+            style: Theme.of(context).textTheme.headline5,
+          ),
+          // backgroundColor: Colors.pink[100],
         ),
-        // backgroundColor: Colors.pink[100],
-      ),
-      body: _buildSuggestions(),
-      floatingActionButton: FloatingActionButton(
-          onPressed: null,
-          tooltip: "That's a bingo",
-          child: Icon(Icons.ac_unit)),
-    );
+        body: _buildSuggestions(),
+        floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.white,
+            onPressed: null,
+            tooltip: "That's a bingo",
+            child: Icon(Icons.ac_unit)),
+        drawer: Drawer(
+          // Add a ListView to the drawer. This ensures the user can scroll
+          // through the options in the drawer if there isn't enough vertical
+          // space to fit everything.
+          child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                child: Text(
+                  'Profile',
+                  style: TextStyle(fontSize: 30, color: Colors.white),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  'Item 1',
+                  style: TextStyle(color: Colors.orangeAccent, fontSize: 20),
+                ),
+                onTap: () {
+                  print("whoa"); // Update the state of the app.
+                  // ...
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'Item 2',
+                  style: TextStyle(color: Colors.orangeAccent, fontSize: 20),
+                ),
+                onTap: () {
+                  // Update the state of the app.
+                  // ...
+                },
+              ),
+            ],
+          ),
+        ));
   }
 
   Widget _buildSuggestions() {
